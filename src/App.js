@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage";
 import SignInPage from "./pages/SignInPage";
 import SignUpPage from "./pages/SignUpPage";
 import BlogForm from "./pages/BlogForm";
+import NotFound from "./pages/NotFound";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/blogs/new" element={<BlogForm />} />
         <Route path="/signin" element={<SignInPage />} />
         <Route path="/signup" element={<SignUpPage />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
 
     </>

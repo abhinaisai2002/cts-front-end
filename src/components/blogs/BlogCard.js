@@ -3,7 +3,7 @@ import { BiLike,BiComment } from 'react-icons/bi';
 import { RiShareForwardLine } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
 
-export default function Blog() {
+export default function BlogCard() {
   return (
     <div className='border border-dark p-3 rounded'>
         <div>
@@ -11,9 +11,6 @@ export default function Blog() {
                 <h5 className="text-decoration-underline">Username</h5>
                 <p className='text-black-50'>email | createdDate</p>  
             </div>
-            <div>
-                  
-            </div>  
         </div>
         
         <div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import Blog from './Blog';
+import Blog from './BlogCard';
 
 export default function Blogs() {
     return (

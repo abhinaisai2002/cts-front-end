@@ -13,7 +13,6 @@ export default function NavigationBar() {
 			<div className="container-fluid">
 				<div className='d-flex w-100 justify-content-between align-items-center'>
 					<Link to="/blogs" className="navbar-brand text-white">Blog Posts</Link>
-
 					<div>
 						<span className='text-white mx-5'>
 							<Button
