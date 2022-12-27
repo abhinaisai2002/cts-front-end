@@ -38,7 +38,7 @@ export default function SignInPage() {
 
         <form onSubmit={handleSubmit}>
           <legend>
-            <h1>Login your account</h1>
+            <h1 className='font-monospace'>Login your account</h1>
           </legend>
           <Input
             label="Email"

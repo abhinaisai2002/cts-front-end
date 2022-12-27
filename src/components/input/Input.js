@@ -9,13 +9,14 @@ export const Input = ({
   success,
   errorCond,
   touched,
+
   ...other
 }) => {
 
   return (
     <Form.Group className={`input__wrapper m-3`}>
       {label && (
-        <Form.Label>
+        <Form.Label className='font-monospace fw-bold'>
           {label}
           {required && <span className="asterisk">*</span>}
         </Form.Label>

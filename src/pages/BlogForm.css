@@ -1,0 +1,10 @@
+.w-md-editor-text-pre > code,
+.w-md-editor-text-input {
+  font-size: 20px !important;
+  line-height: 24px !important;
+}
+
+.form-check-input:checked{
+  background-color: black !important;
+  border-color: black !important;
+}

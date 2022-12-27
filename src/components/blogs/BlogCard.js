@@ -2,15 +2,19 @@ import React from 'react';
 import { BiLike,BiComment } from 'react-icons/bi';
 import { RiShareForwardLine } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
+import { Button } from '../button/Button';
 
-export default function BlogCard() {
+export default function BlogCard({myBlogs}) {
   return (
     <div className='border border-dark p-3 rounded'>
-        <div>
+        <div className='d-flex justify-content-between align-items-center'>
             <div>
                 <h5 className="text-decoration-underline">Username</h5>
                 <p className='text-black-50'>email | createdDate</p>  
             </div>
+            {myBlogs && <div>
+                <Button color={'danger'} text='Delete' type={'button'} />
+            </div>}
         </div>
         
         <div>
@@ -20,7 +24,7 @@ export default function BlogCard() {
                 I always had a fascination with technology. I spent hours tinkering
                 with gadgets and software, trying to understand how they worked and how I co…
             </p>
-            <Link to="/" >View more</Link>  
+            <Link to="/blogs/101" >View more</Link>  
         </div>
         <div className='mt-2'>
             

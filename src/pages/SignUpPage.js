@@ -47,7 +47,7 @@ export default function SignUpPage() {
 
         <form onSubmit={handleSubmit}>
           <legend>
-            <h1>Create your account</h1>
+            <h1 className='font-monospace'>Create your account</h1>
           </legend>
           <Input
             label="Email"
