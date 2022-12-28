@@ -5,17 +5,21 @@ const modalSlice = createSlice({
     initialState: {
         show: false,
         title: null,
-        body: null,
-        footer:null
+        body: null
     },
     reducers: {
-        openModal(state, payload) {
-            
+        openModal(state, {payload}) {
+            state.show = true;
+            state.title = payload.title;
+            state.body = payload.body;
         },
-        closeModal(state, payload) {
-            
+        closeModal(state) {
+            state.show = false;
+            state.title = null;
+            state.body = null; 
         }
     }
 })
 
 export default modalSlice;
+export const modalActions = modalSlice.actions; 

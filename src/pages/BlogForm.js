@@ -43,7 +43,7 @@ export default function BlogForm() {
   const [value, setValue] = React.useState(mkdStr);
 
   return (
-    <div className='container h-100 overflow-scroll'>
+    <div className='container h-100 overflow-scroll-y'>
       <div className='my-5 border-bottom border-primary border-3'>
         <div className=''>
           <h1>Write a Blog</h1>
