@@ -8,6 +8,7 @@ import { BiLike } from 'react-icons/bi';
 import { modalActions } from '../store/slices/modalSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import ModalComponent from '../components/modal/Modal';
+import WriteComment from '../components/modal/blogs/WriteComment';
 
 const mkdStr = `
 # Title
@@ -63,8 +64,8 @@ export default function ViewBlog() {
 
     const addCommentButtonHandler = ()=>{
         dispatch(modalActions.openModal({
-           'title':'Title',
-            'body':'Body'
+            'title':'Comment the Blog. ',
+            'body':<WriteComment />
         })); 
     }
 

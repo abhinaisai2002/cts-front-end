@@ -15,8 +15,8 @@ const ModalComponent = () => {
     ḍispatch(modalActions.closeModal());
   }
 
-  return createPortal(
-    (
+  return (
+    
       <Modal
         show={show}
         onHide={handleClose}
@@ -30,7 +30,7 @@ const ModalComponent = () => {
         </Modal.Header>
         <Modal.Body>{body}</Modal.Body>
       </Modal>
-    ),document.getElementById('modal'));
-};
+  );
+}
 
 export default ModalComponent;

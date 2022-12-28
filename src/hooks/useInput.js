@@ -15,7 +15,6 @@ const useInput = (initial, validate) => {
 
   const handleBlur = () => {
       setIsTouched(true);
-      console.log(value);
     if (!validate(value)) setHasError(true);
     else setHasError(false);
   };
