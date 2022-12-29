@@ -1,5 +1,6 @@
 import React from 'react'
 import { Input } from '../components/input/Input';
+import { Button } from '../components/button/Button';
 import useInput from '../hooks/useInput'
 import MDEditor from "@uiw/react-md-editor";
 import './BlogForm.css'
@@ -87,6 +88,17 @@ export default function BlogForm() {
               <h5 className='font-sans fw-bold'>Your content goes here...</h5>
               <MDEditor height={400} value={value} preview='edit'  onChange={setValue} />
             </div>
+          </div>
+        </div>
+
+        <div className='row my-3'>
+          <div className='d-flex justify-content-end'>
+            <Button
+              className={'fs-4 px-3 '}
+              type="submit"
+              text="Post"
+              color={'success'}
+            />
           </div>
         </div>
       </form>  

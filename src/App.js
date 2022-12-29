@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import NavigationBar from "./components/NavigationBar";
@@ -10,11 +10,28 @@ import NotFound from "./pages/NotFound";
 import PrivateRoute from "./utils/PrivateRoute";
 import PublicRoute from "./utils/PublicRoute";
 import ViewBlog from "./pages/ViewBlog";
+import { useCookies } from "react-cookie";
+import { useDispatch } from "react-redux";
+import { authActions } from "./store/slices/authSlice";
+import { loadingActions } from "./store/slices/loadingSlice";
 
 
 function App() {
 
 
+  const [cookie, setCookie, removeCookie] = useCookies('blog-app');
+  
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (cookie['accessToken'] && cookie['user']) {
+      dispatch(authActions.loginUser({
+        accessToken: cookie['accessToken'],
+        user:cookie['user']
+      }))
+    }
+    dispatch(loadingActions.hideLoading());
+  },[])
 
   return (
     <>

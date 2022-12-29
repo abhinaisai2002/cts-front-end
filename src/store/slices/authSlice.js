@@ -4,11 +4,16 @@ import  userThunks  from '../thunks/usersThunk';
 const authSlice = createSlice({
     name: 'auth',
     initialState: {
-        isAuthenticated: true,
+        isAuthenticated: false,
         user: null,
         accessToken: null,
     },
     reducers: {
+        loginUser(state, action) {
+            state.isAuthenticated = true;
+            state.user = action.payload.user;
+            state.accessToken = action.payload.accessToken;
+        },
         logOut(state) {
             state.isAuthenticated = false;
             state.user = null;
@@ -26,3 +31,4 @@ const authSlice = createSlice({
 });
 
 export default authSlice;
+export const authActions = authSlice.actions;

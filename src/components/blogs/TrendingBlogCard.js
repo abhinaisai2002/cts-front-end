@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function RecentBlogCard() {
+export default function TrendingBlogCard() {
   return (
     <div className='rounded border border-dark p-2'>
           

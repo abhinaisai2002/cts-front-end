@@ -2,6 +2,9 @@ import React from 'react'
 import useInput from '../hooks/useInput'
 import validator from 'validator'
 import { Input } from '../components/input/Input';
+import { useDispatch } from 'react-redux';
+import usersThunk from '../store/thunks/usersThunk';
+import { useCookies } from 'react-cookie';
 
 export default function SignInPage() {
   const {
@@ -22,14 +25,22 @@ export default function SignInPage() {
     handleBlur: passwordHandleBlur,
   } = useInput('', validator.isStrongPassword);
 
- 
+  const [cookie,setCookie,removeCookie] = useCookies('blog-app');
+
+  const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log('hi')
     if (emailHasError || passwordHasError )
-      alert("Enter the details correctly");
-    
+      return alert("Enter the details correctly");
+    dispatch(usersThunk.loginUser({ email: emailValue, password: passwordValue }))
+      .unwrap()
+      .then(res => {
+        setCookie('accessToken', res.accessToken, { maxAge: 60 * 60 * 4,path:'/',sameSite:'none',secure:true });
+        setCookie('user', JSON.stringify(res.user), { maxAge: 60 * 60 * 4,path:'/',sameSite:'none',secure:true });
+        
+      })
   }
  
   return (

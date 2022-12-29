@@ -2,8 +2,9 @@ import React from 'react'
 import {Input} from '../../input/Input'
 import { Button } from '../../button/Button';
 import useInput from '../../../hooks/useInput';
+import './WriteComment.css'
 
-export default function WriteComment() {
+export default function WriteComment({showLoading,startLoading,stopLoading}) {
 
     const {
       value: commentValue,
@@ -14,8 +15,9 @@ export default function WriteComment() {
     } = useInput('', (text) => text.trim().length > 0);
 
     const submitHandler = (event)=>{
-        event.preventDefault();
-        console.log('form submitted')
+      event.preventDefault();
+      console.log('form submitted');
+      startLoading();
     }
 
     return (
@@ -33,6 +35,7 @@ export default function WriteComment() {
                 onChange={commentHandleChange}
                 onBlur={commentHandleBlur}
                 placeholder='Enter your comment.'
+                disabled={showLoading}
               />
             </div>
           </div>
@@ -40,11 +43,19 @@ export default function WriteComment() {
             <div className='col-md-10'></div>
             <div className='col px-2'>
               <Button 
-                text='Comment' 
+                text={
+                  !showLoading? 'Comment' :<ButtonLoader />
+                }
+                disabled={showLoading}
                 color='success' type="submit" />
             </div>
           </div>
         </form>
       </div>
     );
+}
+
+
+export const ButtonLoader = () => {
+  return <span className="button-loader"></span>
 }

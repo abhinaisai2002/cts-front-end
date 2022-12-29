@@ -1,13 +1,13 @@
 import React from 'react';
 import Blog from './BlogCard';
 
-export default function Blogs({...props}) {
+export default function Blogs({blogs,...props}) {
     return (
         <div className=''>
-            <Blog {...props} />
-            <Blog {...props} />
-            <Blog {...props} />
-            <Blog {...props} />
+            {blogs.map(blog => (
+                <Blog key={blog.blogId} {...props} blog={blog}/>
+            ))}
+            
         </div>
     );
 }
